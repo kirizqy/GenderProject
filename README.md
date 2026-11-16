@@ -1,6 +1,6 @@
 # GenderProject
 
-Perkembangan gender pay gap di Eropa 
+Bagaimana dan mengapa: perkembangan gender pay gap di Eropa 
 
 1. Bagaimana tren gender pay gap di Eropa seiring waktu? 
 2. Berdasarkan Industri, bagaimana tren gender pay gap?
