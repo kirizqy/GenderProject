@@ -2,11 +2,11 @@
 
 Perkembangan gender pay gap di Eropa 
 
-1. Bagaimana trend pay gap di Eropa seiring waktu? 
-2. Berdasarkan Industri, bagaimana trend pay gap?
-3. Apakah tingkat edukasi wanita berpengaruh dengan pay gap?
-4. Seberapa besar persentase gap employment antara gender?
-5. Seberapa besar persentase wanita masuk menjabat dalam manajemen suatu perusahaan?
+1. Bagaimana tren gender pay gap di Eropa seiring waktu? 
+2. Berdasarkan Industri, bagaimana tren gender pay gap?
+3. Bagaimana trend tingkat edukasi wanita? Serta apa pengaruhnya terhadap gender pay gap?
+4. Bagaimana tren persentase gap employment antara gender? Bagaimana pengaruhnya terhadap gender pay gap?
+5. Bagaimana perkembangan tren persentase wanita masuk menjabat dalam manajemen suatu perusahaan? Bagaimana pengaruhnya terhadap gender pay gap?
 
 
 Semua dataset berdasarkan website [Eurostat](https://ec.europa.eu/eurostat/databrowser/explore/all/tb_eu?sort=category&lang=en&subtheme=sdg.sdg_05&display=list) tahun 2015 -2024
