@@ -23,4 +23,7 @@ Link: [Click](https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/data
 Data set : Female aged 25-34 with tertiary educational (kuliah) attainment level\
 Link: [Click](https://ec.europa.eu/eurostat/api/dissemination/sdmx/3.0/data/dataflow/ESTAT/sdg_04_20/1.0/*.*.*.*.*.*?c[freq]=A&c[sex]=F&c[age]=Y25-34&c[unit]=PC&c[isced11]=ED5-8&c[geo]=BE,BG,CZ,DK,DE,EE,IE,EL,ES,FR,HR,IT,CY,LV,LT,LU,HU,MT,NL,AT,PL,PT,RO,SI,SK,FI,SE,IS,NO,CH,BA,ME,MK,RS,TR,UK&c[TIME_PERIOD]=2024,2023,2022,2021,2020,2019,2018,2017,2016,2015&compress=true&format=csvdata&formatVersion=2.0&lang=en&labels=name)
 
-Limitasi: Coming soon
+Limitasi: 
+1. Rentang waktu 2015-2024 yang dipilih sesuai dengan ketersediaan data dan 10 tahun cukup untuk melihat tren perkembangan. 
+2. Terdapat missing value karena pada data Gender Pay Gap dan Employment gap karena pada saat itu ada beberapa negara yang belum bergabung kedalam Uni Eropa.
+3. Data set tertiary educational (kuliah) hanya tersedia pada umur 25-34
