@@ -1,0 +1,1992 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20263.26.1022.1645                               -->
+<workbook _.fcp.WorkbookFingerprinting.true...author-id='e5851f323416de3ed3ce0c74e05fd8194b8d32e901cd6e009ce0bb91614e3b77' _.fcp.WorkbookFingerprinting.true...creator-author-id='e5851f323416de3ed3ce0c74e05fd8194b8d32e901cd6e009ce0bb91614e3b77' _.fcp.WorkbookFingerprinting.true...creator-license-type='public' _.fcp.WorkbookFingerprinting.true...creator-machine-id='e5851f323416de3ed3ce0c74e05fd8194b8d32e901cd6e009ce0bb91614e3b77' _.fcp.WorkbookFingerprinting.true...license-type='public' _.fcp.WorkbookFingerprinting.true...machine-id='e5851f323416de3ed3ce0c74e05fd8194b8d32e901cd6e009ce0bb91614e3b77' original-version='18.1' source-build='2026.3.0 (20263.26.1022.1645)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+    <_.fcp.WorkbookFingerprinting.true...WorkbookFingerprinting />
+    <ZoneBackgroundTransparency />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='wage_gap_clean+' inline='true' name='federated.1roj06w1x1bv871fvehey0weaidk' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='wage_gap_clean' name='textscan.0chbk1e08p90sp19ed43x19t5ess'>
+            <connection class='textscan' directory='C:/Users/guntu/Git/GenderProject' filename='wage_gap_clean.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.0chbk1e08p90sp19ed43x19t5ess' name='wage_gap_clean.csv' table='[wage_gap_clean#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='country' ordinal='0' />
+              <column datatype='integer' name='year' ordinal='1' />
+              <column datatype='string' name='industry' ordinal='2' />
+              <column datatype='real' name='wage_gap_rate(%)' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0chbk1e08p90sp19ed43x19t5ess' name='emp_gap_clean.csv' table='[emp_gap_clean#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='country' ordinal='0' />
+              <column datatype='integer' name='year' ordinal='1' />
+              <column datatype='real' name='employment_gap_rate(%)' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0chbk1e08p90sp19ed43x19t5ess' name='women_college_clean.csv' table='[women_college_clean#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='country' ordinal='0' />
+              <column datatype='integer' name='year' ordinal='1' />
+              <column datatype='real' name='women_college_rate(%)' ordinal='2' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0chbk1e08p90sp19ed43x19t5ess' name='women_mang_clean.csv' table='[women_mang_clean#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='country' ordinal='0' />
+              <column datatype='integer' name='year' ordinal='1' />
+              <column datatype='real' name='women_management_rate(%)' ordinal='2' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[country (emp_gap_clean.csv)]' value='[emp_gap_clean.csv].[country]' />
+          <map key='[country (women_college_clean.csv)]' value='[women_college_clean.csv].[country]' />
+          <map key='[country (women_mang_clean.csv)]' value='[women_mang_clean.csv].[country]' />
+          <map key='[country]' value='[wage_gap_clean.csv].[country]' />
+          <map key='[employment_gap_rate(%)]' value='[emp_gap_clean.csv].[employment_gap_rate(%)]' />
+          <map key='[industry]' value='[wage_gap_clean.csv].[industry]' />
+          <map key='[wage_gap_rate(%)]' value='[wage_gap_clean.csv].[wage_gap_rate(%)]' />
+          <map key='[women_college_rate(%)]' value='[women_college_clean.csv].[women_college_rate(%)]' />
+          <map key='[women_management_rate(%)]' value='[women_mang_clean.csv].[women_management_rate(%)]' />
+          <map key='[year (emp_gap_clean.csv)]' value='[emp_gap_clean.csv].[year]' />
+          <map key='[year (women_college_clean.csv)]' value='[women_college_clean.csv].[year]' />
+          <map key='[year (women_mang_clean.csv)]' value='[women_mang_clean.csv].[year]' />
+          <map key='[year]' value='[wage_gap_clean.csv].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[wage_gap_clean.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[emp_gap_clean.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[women_college_clean.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[women_mang_clean.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country]</local-name>
+            <parent-name>[wage_gap_clean.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[wage_gap_clean.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>industry</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[industry]</local-name>
+            <parent-name>[wage_gap_clean.csv]</parent-name>
+            <remote-alias>industry</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>wage_gap_rate(%)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[wage_gap_rate(%)]</local-name>
+            <parent-name>[wage_gap_clean.csv]</parent-name>
+            <remote-alias>wage_gap_rate(%)</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country (emp_gap_clean.csv)]</local-name>
+            <parent-name>[emp_gap_clean.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (emp_gap_clean.csv)]</local-name>
+            <parent-name>[emp_gap_clean.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>employment_gap_rate(%)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[employment_gap_rate(%)]</local-name>
+            <parent-name>[emp_gap_clean.csv]</parent-name>
+            <remote-alias>employment_gap_rate(%)</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country (women_college_clean.csv)]</local-name>
+            <parent-name>[women_college_clean.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (women_college_clean.csv)]</local-name>
+            <parent-name>[women_college_clean.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>women_college_rate(%)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[women_college_rate(%)]</local-name>
+            <parent-name>[women_college_clean.csv]</parent-name>
+            <remote-alias>women_college_rate(%)</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[country (women_mang_clean.csv)]</local-name>
+            <parent-name>[women_mang_clean.csv]</parent-name>
+            <remote-alias>country</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year (women_mang_clean.csv)]</local-name>
+            <parent-name>[women_mang_clean.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>women_management_rate(%)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[women_management_rate(%)]</local-name>
+            <parent-name>[women_mang_clean.csv]</parent-name>
+            <remote-alias>women_management_rate(%)</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Abs Employment Gap Rate' datatype='real' name='[Calculation_1346969371545600]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG(ABS([employment_gap_rate(%)]))' />
+      </column>
+      <column caption='emp_gap_clean.csv' datatype='table' name='[__tableau_internal_object_id__].[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]' role='measure' type='quantitative' />
+      <column caption='wage_gap_clean.csv' datatype='table' name='[__tableau_internal_object_id__].[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]' role='measure' type='quantitative' />
+      <column caption='women_college_clean.csv' datatype='table' name='[__tableau_internal_object_id__].[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]' role='measure' type='quantitative' />
+      <column caption='women_mang_clean.csv' datatype='table' name='[__tableau_internal_object_id__].[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]' role='measure' type='quantitative' />
+      <column caption='Country (Emp Gap Clean.Csv)' datatype='string' name='[country (emp_gap_clean.csv)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country (Women College Clean.Csv)' datatype='string' name='[country (women_college_clean.csv)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country (Women Mang Clean.Csv)' datatype='string' name='[country (women_mang_clean.csv)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Employment Gap Rate(%)' datatype='real' name='[employment_gap_rate(%)]' role='measure' type='quantitative' />
+      <column caption='Industry' datatype='string' name='[industry]' role='dimension' type='nominal' />
+      <column caption='Wage Gap Rate(%)' datatype='real' name='[wage_gap_rate(%)]' role='measure' type='quantitative' />
+      <column caption='Women College Rate(%)' datatype='real' name='[women_college_rate(%)]' role='measure' type='quantitative' />
+      <column caption='Women Management Rate(%)' datatype='real' name='[women_management_rate(%)]' role='measure' type='quantitative' />
+      <column caption='Year (Emp Gap Clean.Csv)' datatype='integer' name='[year (emp_gap_clean.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Women College Clean.Csv)' datatype='integer' name='[year (women_college_clean.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year (Women Mang Clean.Csv)' datatype='integer' name='[year (women_mang_clean.csv)]' role='dimension' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <extract count='-1' enabled='true' object-id='' units='records' user-specific='false'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/guntu/AppData/Local/Temp/TableauTemp/#TableauTemp_1c4v5jw1s5793g1flr5j81sl6vsf.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='11/17/2026 06:05:15 AM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E' table='[Extract].[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]' type='table' />
+            <relation name='emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E' table='[Extract].[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]' type='table' />
+            <relation name='women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16' table='[Extract].[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]' type='table' />
+            <relation name='women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D' table='[Extract].[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]' type='table' />
+          </relation>
+          <cols>
+            <map key='[country (emp_gap_clean.csv)]' value='[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E].[country]' />
+            <map key='[country (women_college_clean.csv)]' value='[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16].[country]' />
+            <map key='[country (women_mang_clean.csv)]' value='[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D].[country]' />
+            <map key='[country]' value='[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E].[country]' />
+            <map key='[employment_gap_rate(%)]' value='[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E].[employment_gap_rate(%)]' />
+            <map key='[industry]' value='[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E].[industry]' />
+            <map key='[wage_gap_rate(%)]' value='[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E].[wage_gap_rate(%)]' />
+            <map key='[women_college_rate(%)]' value='[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16].[women_college_rate(%)]' />
+            <map key='[women_management_rate(%)]' value='[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D].[women_management_rate(%)]' />
+            <map key='[year (emp_gap_clean.csv)]' value='[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E].[year]' />
+            <map key='[year (women_college_clean.csv)]' value='[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16].[year]' />
+            <map key='[year (women_mang_clean.csv)]' value='[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D].[year]' />
+            <map key='[year]' value='[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E].[year]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country]</local-name>
+              <parent-name>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</parent-name>
+              <remote-alias>country</remote-alias>
+              <ordinal>0</ordinal>
+              <family>wage_gap_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>33</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[year]</local-name>
+              <parent-name>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</parent-name>
+              <remote-alias>year</remote-alias>
+              <ordinal>1</ordinal>
+              <family>wage_gap_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>industry</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[industry]</local-name>
+              <parent-name>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</parent-name>
+              <remote-alias>industry</remote-alias>
+              <ordinal>2</ordinal>
+              <family>wage_gap_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>wage_gap_rate(%)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[wage_gap_rate(%)]</local-name>
+              <parent-name>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</parent-name>
+              <remote-alias>wage_gap_rate(%)</remote-alias>
+              <ordinal>3</ordinal>
+              <family>wage_gap_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>565</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country (emp_gap_clean.csv)]</local-name>
+              <parent-name>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</parent-name>
+              <remote-alias>country</remote-alias>
+              <ordinal>4</ordinal>
+              <family>emp_gap_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>35</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[year (emp_gap_clean.csv)]</local-name>
+              <parent-name>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</parent-name>
+              <remote-alias>year</remote-alias>
+              <ordinal>5</ordinal>
+              <family>emp_gap_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>employment_gap_rate(%)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[employment_gap_rate(%)]</local-name>
+              <parent-name>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</parent-name>
+              <remote-alias>employment_gap_rate(%)</remote-alias>
+              <ordinal>6</ordinal>
+              <family>emp_gap_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>379</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country (women_college_clean.csv)]</local-name>
+              <parent-name>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</parent-name>
+              <remote-alias>country</remote-alias>
+              <ordinal>7</ordinal>
+              <family>women_college_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>36</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[year (women_college_clean.csv)]</local-name>
+              <parent-name>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</parent-name>
+              <remote-alias>year</remote-alias>
+              <ordinal>8</ordinal>
+              <family>women_college_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>women_college_rate(%)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[women_college_rate(%)]</local-name>
+              <parent-name>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</parent-name>
+              <remote-alias>women_college_rate(%)</remote-alias>
+              <ordinal>9</ordinal>
+              <family>women_college_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>225</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>country</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[country (women_mang_clean.csv)]</local-name>
+              <parent-name>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</parent-name>
+              <remote-alias>country</remote-alias>
+              <ordinal>10</ordinal>
+              <family>women_mang_clean.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>34</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+              <object-id>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[year (women_mang_clean.csv)]</local-name>
+              <parent-name>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</parent-name>
+              <remote-alias>year</remote-alias>
+              <ordinal>11</ordinal>
+              <family>women_mang_clean.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>10</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>women_management_rate(%)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[women_management_rate(%)]</local-name>
+              <parent-name>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</parent-name>
+              <remote-alias>women_management_rate(%)</remote-alias>
+              <ordinal>12</ordinal>
+              <family>women_mang_clean.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>322</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;Indonesia&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='emp_gap_clean.csv' id='emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E'>
+            <properties context=''>
+              <relation connection='textscan.0chbk1e08p90sp19ed43x19t5ess' name='emp_gap_clean.csv' table='[emp_gap_clean#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='country' ordinal='0' />
+                  <column datatype='integer' name='year' ordinal='1' />
+                  <column datatype='real' name='employment_gap_rate(%)' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E' table='[Extract].[emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E]' type='table' />
+            </properties>
+          </object>
+          <object caption='wage_gap_clean.csv' id='wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E'>
+            <properties context=''>
+              <relation connection='textscan.0chbk1e08p90sp19ed43x19t5ess' name='wage_gap_clean.csv' table='[wage_gap_clean#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='country' ordinal='0' />
+                  <column datatype='integer' name='year' ordinal='1' />
+                  <column datatype='string' name='industry' ordinal='2' />
+                  <column datatype='real' name='wage_gap_rate(%)' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E' table='[Extract].[wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E]' type='table' />
+            </properties>
+          </object>
+          <object caption='women_college_clean.csv' id='women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16'>
+            <properties context=''>
+              <relation connection='textscan.0chbk1e08p90sp19ed43x19t5ess' name='women_college_clean.csv' table='[women_college_clean#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='country' ordinal='0' />
+                  <column datatype='integer' name='year' ordinal='1' />
+                  <column datatype='real' name='women_college_rate(%)' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16' table='[Extract].[women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16]' type='table' />
+            </properties>
+          </object>
+          <object caption='women_mang_clean.csv' id='women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D'>
+            <properties context=''>
+              <relation connection='textscan.0chbk1e08p90sp19ed43x19t5ess' name='women_mang_clean.csv' table='[women_mang_clean#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='country' ordinal='0' />
+                  <column datatype='integer' name='year' ordinal='1' />
+                  <column datatype='real' name='women_management_rate(%)' ordinal='2' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D' table='[Extract].[women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[year]' />
+                <expression op='[year (emp_gap_clean.csv)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[country]' />
+                <expression op='[country (emp_gap_clean.csv)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E' />
+            <second-end-point object-id='emp_gap_clean.csv_C257B7EE167248C3832BE573CE99939E' />
+          </relationship>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[year]' />
+                <expression op='[year (women_college_clean.csv)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[country]' />
+                <expression op='[country (women_college_clean.csv)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E' />
+            <second-end-point object-id='women_college_clean.csv_0621A72C128A4CF5B40DD357903E0B16' />
+          </relationship>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[year]' />
+                <expression op='[year (women_mang_clean.csv)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[country]' />
+                <expression op='[country (women_mang_clean.csv)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='wage_gap_clean.csv_6954FFBA99FC441DA3DE06D6BFBB967E' />
+            <second-end-point object-id='women_mang_clean.csv_4144848D22394F1CB3A04A4D8349271D' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <shared-views>
+    <shared-view name='federated.1roj06w1x1bv871fvehey0weaidk'>
+      <datasources>
+        <datasource caption='wage_gap_clean+' name='federated.1roj06w1x1bv871fvehey0weaidk' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1roj06w1x1bv871fvehey0weaidk'>
+        <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+        <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <filter class='categorical' column='[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]'>
+        <groupfilter function='level-members' level='[none:country:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+        <target field='[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]' />
+      </filter>
+    </shared-view>
+  </shared-views>
+  <worksheets>
+    <worksheet name='Employment Gap'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wage_gap_clean+' name='federated.1roj06w1x1bv871fvehey0weaidk' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1roj06w1x1bv871fvehey0weaidk'>
+            <column caption='Abs Employment Gap Rate' datatype='real' name='[Calculation_1346969371545600]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='AVG(ABS([employment_gap_rate(%)]))' />
+            </column>
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Employment Gap Rate(%)' datatype='real' name='[employment_gap_rate(%)]' role='measure' type='quantitative' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[year (emp_gap_clean.csv)]' derivation='None' name='[none:year (emp_gap_clean.csv):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1346969371545600]' derivation='User' name='[usr:Calculation_1346969371545600:qk]' pivot='key' type='quantitative' />
+            <column caption='Year (Emp Gap Clean.Csv)' datatype='integer' name='[year (emp_gap_clean.csv)]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (emp_gap_clean.csv):qk]' scope='cols' value='Year' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1roj06w1x1bv871fvehey0weaidk].[usr:Calculation_1346969371545600:qk]' palette='red_green_gold_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='tooltip'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1roj06w1x1bv871fvehey0weaidk].[usr:Calculation_1346969371545600:qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Year:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (emp_gap_clean.csv):qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Employment Gap Rate:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[usr:Calculation_1346969371545600:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1roj06w1x1bv871fvehey0weaidk].[usr:Calculation_1346969371545600:qk]</rows>
+        <cols>[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (emp_gap_clean.csv):qk]</cols>
+      </table>
+      <simple-id uuid='{50E6B64B-ACFA-4F51-B06C-E50492E758CD}' />
+    </worksheet>
+    <worksheet name='Gender Pay Gap per Industry'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wage_gap_clean+' name='federated.1roj06w1x1bv871fvehey0weaidk' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1roj06w1x1bv871fvehey0weaidk'>
+            <column-instance column='[wage_gap_rate(%)]' derivation='Avg' name='[avg:wage_gap_rate(%):qk]' pivot='key' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Industry' datatype='string' name='[industry]' role='dimension' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[industry]' derivation='None' name='[none:industry:nk]' pivot='key' type='nominal' />
+            <column caption='Wage Gap Rate(%)' datatype='real' name='[wage_gap_rate(%)]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.1roj06w1x1bv871fvehey0weaidk].[none:industry:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:wage_gap_rate(%):qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:wage_gap_rate(%):qk]' palette='red_green_gold_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='tooltip'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:wage_gap_rate(%):qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Industry:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[none:industry:nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Wage Gap Rate(%):&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[avg:wage_gap_rate(%):qk]>]]></run>
+                <run>Æ&#10;</run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1roj06w1x1bv871fvehey0weaidk].[avg:wage_gap_rate(%):qk]</rows>
+        <cols>[federated.1roj06w1x1bv871fvehey0weaidk].[none:industry:nk]</cols>
+      </table>
+      <simple-id uuid='{89838A50-487B-4625-879F-400110ACA711}' />
+    </worksheet>
+    <worksheet name='Gender Pay Gap per Year'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wage_gap_clean+' name='federated.1roj06w1x1bv871fvehey0weaidk' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1roj06w1x1bv871fvehey0weaidk'>
+            <column-instance column='[wage_gap_rate(%)]' derivation='Avg' name='[avg:wage_gap_rate(%):qk]' pivot='key' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[year]' derivation='None' name='[none:year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[wage_gap_rate(%)]' derivation='Sum' name='[sum:wage_gap_rate(%):qk]' pivot='key' type='quantitative' />
+            <column caption='Wage Gap Rate(%)' datatype='real' name='[wage_gap_rate(%)]' role='measure' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1roj06w1x1bv871fvehey0weaidk].[sum:wage_gap_rate(%):qk]' palette='red_green_gold_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='tooltip'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1roj06w1x1bv871fvehey0weaidk].[sum:wage_gap_rate(%):qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Year:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[none:year:qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Wage Gap Rate(%):&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[avg:wage_gap_rate(%):qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1roj06w1x1bv871fvehey0weaidk].[avg:wage_gap_rate(%):qk]</rows>
+        <cols>[federated.1roj06w1x1bv871fvehey0weaidk].[none:year:qk]</cols>
+      </table>
+      <simple-id uuid='{E08852F5-4EF0-43A8-AFDC-FFC9888F6698}' />
+    </worksheet>
+    <worksheet name='Women in College Level Education'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wage_gap_clean+' name='federated.1roj06w1x1bv871fvehey0weaidk' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1roj06w1x1bv871fvehey0weaidk'>
+            <column-instance column='[women_college_rate(%)]' derivation='Avg' name='[avg:women_college_rate(%):qk]' pivot='key' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[year (women_college_clean.csv)]' derivation='None' name='[none:year (women_college_clean.csv):qk]' pivot='key' type='quantitative' />
+            <column caption='Women College Rate(%)' datatype='real' name='[women_college_rate(%)]' role='measure' type='quantitative' />
+            <column caption='Year (Women College Clean.Csv)' datatype='integer' name='[year (women_college_clean.csv)]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (women_college_clean.csv):qk]' scope='cols' value='Year' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_college_rate(%):qk]' palette='red_green_gold_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='tooltip'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_college_rate(%):qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Year:&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (women_college_clean.csv):qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Women College Rate(%):&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_college_rate(%):qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_college_rate(%):qk]</rows>
+        <cols>[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (women_college_clean.csv):qk]</cols>
+      </table>
+      <simple-id uuid='{8E0164DC-59AC-4D3A-BF98-182E7EA8E7C0}' />
+    </worksheet>
+    <worksheet name='Women in Managerial'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='wage_gap_clean+' name='federated.1roj06w1x1bv871fvehey0weaidk' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1roj06w1x1bv871fvehey0weaidk'>
+            <column-instance column='[women_management_rate(%)]' derivation='Avg' name='[avg:women_management_rate(%):qk]' pivot='key' type='quantitative' />
+            <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[year (women_mang_clean.csv)]' derivation='None' name='[none:year (women_mang_clean.csv):qk]' pivot='key' type='quantitative' />
+            <column caption='Women Management Rate(%)' datatype='real' name='[women_management_rate(%)]' role='measure' type='quantitative' />
+            <column caption='Year (Women Mang Clean.Csv)' datatype='integer' name='[year (women_mang_clean.csv)]' role='dimension' type='quantitative' />
+          </datasource-dependencies>
+          <slices>
+            <column>[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (women_mang_clean.csv):qk]' scope='cols' value='Year' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_management_rate(%):qk]' palette='red_green_gold_diverging_10_0' type='interpolated' />
+          </style-rule>
+          <style-rule element='tooltip'>
+            <format attr='background-color' value='#ffffff' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_management_rate(%):qk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'>Year :&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (women_mang_clean.csv):qk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'>Women Management Rate(%):&#9;</run>
+                <run bold='true'><![CDATA[<[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_management_rate(%):qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_management_rate(%):qk]</rows>
+        <cols>[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (women_mang_clean.csv):qk]</cols>
+      </table>
+      <simple-id uuid='{78D1990E-AE05-49CF-9572-99F92EA29124}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size sizing-mode='automatic' />
+      <datasources>
+        <datasource caption='wage_gap_clean+' name='federated.1roj06w1x1bv871fvehey0weaidk' />
+      </datasources>
+      <datasource-dependencies datasource='federated.1roj06w1x1bv871fvehey0weaidk'>
+        <column caption='Country' datatype='string' name='[country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+        <column-instance column='[country]' derivation='None' name='[none:country:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98678' id='7' param='horz' type-v2='layout-flow' w='99304' x='348' y='661'>
+            <zone h='98678' id='5' type-v2='layout-basic' w='92338' x='348' y='661'>
+              <zone h='52515' id='3' name='Gender Pay Gap per Year' w='39437' x='348' y='661'>
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='46163' id='11' name='Women in College Level Education' w='31078' x='348' y='53176'>
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='46163' id='12' name='Employment Gap' w='31865' x='31426' y='53176'>
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='46163' id='13' name='Women in Managerial' w='29395' x='63291' y='53176'>
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='52515' id='14' name='Gender Pay Gap per Industry' w='52901' x='39785' y='661'>
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98678' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='6966' x='92686' y='661'>
+              <zone fixed-size='917' h='76384' id='8' is-fixed='true' mode='checklist' name='Gender Pay Gap per Year' param='[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]' type-v2='filter' w='6966' x='92686' y='661'>
+                <zone-style>
+                  <format attr='border-color' value='#444444' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#444444' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1500' minheight='1500' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='22' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98678' id='21' param='vert' type-v2='layout-flow' w='99304' x='348' y='661'>
+                <zone fixed-size='917' h='76384' id='8' mode='checkdropdown' name='Gender Pay Gap per Year' param='[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]' type-v2='filter' w='6966' x='92686' y='661'>
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='52515' id='3' is-fixed='true' name='Gender Pay Gap per Year' w='39437' x='348' y='661'>
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='52515' id='14' is-fixed='true' name='Gender Pay Gap per Industry' w='52901' x='39785' y='661'>
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46163' id='11' is-fixed='true' name='Women in College Level Education' w='31078' x='348' y='53176'>
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46163' id='12' is-fixed='true' name='Employment Gap' w='31865' x='31426' y='53176'>
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='46163' id='13' is-fixed='true' name='Women in Managerial' w='29395' x='63291' y='53176'>
+                  <zone-style>
+                    <format attr='border-color' value='#444444' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#444444' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{E96AF69B-EA04-420C-8242-D08514C3567A}' />
+    </dashboard>
+  </dashboards>
+  <windows saved-dpi-scale-factor='1.25' source-height='37'>
+    <window class='worksheet' name='Gender Pay Gap per Year'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.1roj06w1x1bv871fvehey0weaidk].[none:country:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2789987B-C3B0-4E04-9FBF-6B2F9B94248D}' />
+    </window>
+    <window class='worksheet' name='Gender Pay Gap per Industry'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1roj06w1x1bv871fvehey0weaidk].[avg:wage_gap_rate(%):qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{CD485998-D60A-401F-8C4C-D7A4A6A12866}' />
+    </window>
+    <window class='worksheet' name='Women in College Level Education'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_college_rate(%):qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <node-selection select-tuples='false'>
+            <oriented-node-reference orientation='horizontal'>
+              <node-reference>
+                <axis>[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (women_college_clean.csv):qk]</axis>
+              </node-reference>
+              <page-reference />
+            </oriented-node-reference>
+          </node-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_college_rate(%):qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{8F5E6DD8-402D-49E7-B460-C702C3E9A646}' />
+    </window>
+    <window class='worksheet' name='Employment Gap'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.1roj06w1x1bv871fvehey0weaidk].[usr:Calculation_1346969371545600:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <node-selection select-tuples='false'>
+            <oriented-node-reference orientation='horizontal'>
+              <node-reference>
+                <axis>[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (emp_gap_clean.csv):qk]</axis>
+              </node-reference>
+              <page-reference />
+            </oriented-node-reference>
+          </node-selection>
+        </selection-collection>
+      </viewpoint>
+      <simple-id uuid='{11D994B8-A797-4DAE-AD11-86CB9C1779A5}' />
+    </window>
+    <window class='worksheet' name='Women in Managerial'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_management_rate(%):qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <selection-collection>
+          <node-selection select-tuples='false'>
+            <oriented-node-reference orientation='horizontal'>
+              <node-reference>
+                <axis>[federated.1roj06w1x1bv871fvehey0weaidk].[none:year (women_mang_clean.csv):qk]</axis>
+              </node-reference>
+              <page-reference />
+            </oriented-node-reference>
+          </node-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1roj06w1x1bv871fvehey0weaidk].[avg:women_management_rate(%):qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{5740B4A0-E3FD-4EA8-93C6-9DA332611680}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Employment Gap'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Gender Pay Gap per Industry'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Gender Pay Gap per Year'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Women in College Level Education'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Women in Managerial'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{0DBA197A-AB3C-430B-8331-0A22E287930F}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Dashboard 1' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Employment Gap' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAABJ0AAASdAHeZh94
+      AAAQ10lEQVR4nO3dSVdbZ57H8e8dNIOYZBAEUylsTHBskqrj6rgWcZ9aV23qVfQr6RfQi956
+      3dvK6awrJ4mTeDiJ244P82RjQHAZJTTee59eCAgY2QVISI99/x+fHASyyA/Qz3fgfx8ZSimF
+      EAFlNvoT6t4n3fOB/hl1zwdnz9jwAvi+3+hP2VCe57U6wr+ke0bd88HZMza8AEK8T6QAItDO
+      XQClFFNTU8zPzwPgOA6//vqr9rs+QtRin/cBvu+zsbGBbdsMDw+zurpKf38/mUyG3t5efN/X
+      +iDJ931c1211jHfSPaPu+eDsGc9dAM/zSCQSlMtlisUinueRz+eJxWJYlgVw9FZHruti2+f+
+      sptK94y654OzZzz3VxEKhejt7SUcDlOpVLhx4waO45BKpS4UVIhWMhr9izDP82QLUCfdM+qe
+      D86eUc4CiUCTAohA03s7dkaHR/ymaWLbNuVyGagejHueRygU0n7XTLTGB7EFyOfzTExM8O23
+      3wKwuLjIP/7xD3788UdmZ2fxfZ/79++zs7PDw4X/49XWKhXPxVd6n7IVl++D2AK0tbVRKBT4
+      85//DEA6nSaXy9HR0cH09DQrKyuEw2G2trb4z//9bwwDetq68H0f27JJxtpojyZIRtvoiCfp
+      jCfpjLfTGUvScfA2GWvDtmwsw8Q0TQwMDMNo8VcuANbW1tjc3OTjjz8mHo8zNTVFR0cHu7u7
+      WJbFwMAAU1NT/OEPfzj1M/sgCgAQj8eJxWKsrKywtbXFZ599xuzsLJZlcffuXVZWVkilUvzP
+      f/wXiWgcy7RQSlHxXLLFHNniPtlijt1Clp18ls3cNvMbL9ktZNnNZ9kr5nB9D1/5+MonbIdo
+      jyZoj1bL0xlL0hFrr/4XP3gbS9IWqf6/LMPCMk0pzSVIpVIsLS3hui6FQoFMJsPQ0BDd3d18
+      //33zM/Pc/v27ZqPldOgF6CUouSWyZX2yRXz1eIUc+wW9tgtZNkrVIu0V8ySK+XxlI/ve/hK
+      EQtFaIvGaYskqludWDsd0WphktF2QrbN/MZL7o38GyErhGlUS2NgYBrVrc7h+60qk26nQX3f
+      57vvvuPevXu4rsvCwgKLi4tcu3aNcDjM48eP6evrY2RkhN7e3hOPlQI0kVKKYqVULU4pT660
+      z17xsCw59opZVnYy/PzqV272j+D5HgpQB8cqR39U9XOFLJuQbROyQoStECErRMiyCR+8H7bD
+      hO0wETtE5OB22A4TObgvYocJW8fuO7htmxbGYfEMA5OTxcsV94mEI4StUEu+j2/K5XKUy2Wi
+      0Sh7e3vMz8+TTqexbZuhoSGWlpZYXV3lzp07p372UgDNKBTlcplIOPLuv6cUru9S8VwqXoXy
+      wdvK0dsKJbdC2StTdsvHblcou2XKXoWSW/7tY1714yWvXC2eUr+VD4WvVPWEgQEvt1/TGUvy
+      UUeakBXCNm1sy8I27WopTZuQHTpWTPtYQQ8/frq4x/++bdonSmce2+r9qy2gUoqyWyYSevf3
+      EKQALTc3N3f0r5NhGDx8+JCxsTHm5uYYHBxkY2MD0zQZHx/X4vhBKcXE2izJWBvJaDuu7+J6
+      7sFbj4pfvV0+VsbyQSGPl/OosH6Njx18vqOt3sFT1D+4ffhxy7SwzWrxbNPCPiifp3wm1+f4
+      92tfVI/Nou0ko20kI9XdzFgoWn2sYV1sGvTly5eYpsnQ0BB7e3tsbm5y9epVrZ5Y74vh4WGW
+      l5cJh8M8evQIz/MolUq8fv2awcFBNjc3KZfLfPrppy35/pZKJebm5kgkEvzud79jb2+Pwsoe
+      o58Ps76+zpUrV5ienqa/v5+u7q6m5VJK4Ssf1/eOlbB6O18u8PPyr9zoHSZbOti13FsjW8yy
+      V8pRrBTxlYfn++cvgGEYDAwM8Pz5c4aGhpibm+P3v/89lmX91k7Nz63rlG99fZ1UKkWxWCQa
+      jTIwMMDk5CR/+ctfePz4MdevX+fJkycYhtGS3KFQiMHBQZ49e8bQ0BAPHjzg1q1bOI7Dw4cP
+      uXPnDsVikUQi0fR8pmEStszqscgbhyNXOwbOtCdyoV2gly9fEovF6OnpIZvNsrS0RDqdJpVK
+      4Xkepqnv79d020XL5/NEo1GKxSKRSISFhQXS6TSrq6tcuXKFvb09EokEPT09Lcv45MkTxsbG
+      iMVifPXVV/T09DA+Ps7Tp0+5e/cuy8vLvH79mnv37rUs45vO+nO+0DY1Go1y5cqVo82zZVl0
+      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
+      IN+kAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Gender Pay Gap per Industry' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Gender Pay Gap per Year' width='192'>
+      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
+      QmCC
+    </thumbnail>
+    <thumbnail height='192' name='Women in College Level Education' width='192'>
+      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
+    </thumbnail>
+    <thumbnail height='192' name='Women in Managerial' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
