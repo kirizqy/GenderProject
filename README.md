@@ -25,28 +25,48 @@ Proyek ini melibatkan berbagai stakeholder yang memiliki peran dalam dalam mereg
 ## **Data Engineering (Pipeline & Infrastructure)**
 ### Data Engineering Pipeline
 
-Alur kerja *data engineering* dirancang untuk memproses data dari sumber hingga siap dianalisis melalui beberapa tahapan utama:
+Alur kerja *data engineering* dirancang secara *end-to-end* untuk mengotomatisasi pengambilan data dari API resmi Eurostat, pembersihan data terdistribusi menggunakan PySpark, validasi kualitas data dengan Great Expectations, hingga pemuatan data ke PostgreSQL (*Star/Galaxy Schema*) dan MongoDB Atlas:
 
 #### 1. Alur Proses Pipeline (ETL & Validation)
-![Pipeline](https://github.com/dutarangga3107-max/CODA-020-Final_Project/blob/main/Schema/pipeline%20.png?raw=true)
-* **Extraction**: Membaca dan mengumpulkan data mentah dari *website* CTDC tanpa membebani kinerja sistem sumber.
-* **Data Validation**: Memastikan data mematuhi logika bisnis (misal: validasi usia dan format data yang sesuai).
-* **Transformation**: 
-  * Pembersihan data: Menangani nilai kosong (*NULL*) dan menghapus baris duplikat.
-  * Pemformatan data: Mengubah data mentah menjadi format yang mudah dianalisis.
-* **Loading**: Memindahkan data yang sudah bersih dan valid ke destinasi akhir di basis data Neon.
+Alur eksekusi pipeline berjalan secara berurutan dengan gerbang validasi kualitas sebelum pemuatan ke database produksi:
+`extract` → `transform` → `validate_gx` → `[load_postgres, load_mongo]`
+
+- **Extraction (`extract.py`)**:
+  - Mengunduh 4 dataset mentah periode 2015–2024 langsung dari **Eurostat SDMX 3.0 API** dalam format CSV terkompresi (`.csv.gz`) ke direktori `/workspace/data/gp/raw`:
+    1. `wage_gap.csv.gz` (`earn_gr_gpgr2`): Kesenjangan upah berdasarkan 17 sektor industri NACE Rev. 2 (`B`–`R`) di 36 negara.
+    2. `emp_gap.csv.gz` (`sdg_05_30`): Kesenjangan tingkat pekerjaan usia 20–64 tahun berdasarkan 4 status kerja (`EMP`, `EMP_PT`, `EMP_TEMP`, `UEMP_PT`) di 35 negara.
+    3. `women_mang.csv.gz` (`sdg_05_61`): Proporsi perempuan di posisi manajemen (`NEXEC`, `NEXEC_EXEC`) di 34 negara.
+    4. `women_college.csv.gz` (`sdg_04_20`): Persentase perempuan usia 25–34 tahun berpendidikan tinggi (ISCED 5–8) di 36 negara.
+  - Dilengkapi mekanisme *auto-retry* hingga 3 kali percobaan dengan jeda bertahap (`5s`, `10s`, `15s`), *timeout* 120 detik, serta pengecekan respons kosong agar proses unduh tahan terhadap gangguan jaringan.
+
+- **Transformation (`transform.py`)**:
+  - Memproses seluruh file mentah menggunakan **PySpark (`pyspark==4.2.1`)** dan menyimpannya ke `/workspace/data/gp/clean/*_clean.csv`.
+  - **Standarisasi Skema**: Menyeragamkan nama kolom mentah menjadi `snake_case` (`to_snake_case()`) dan memetakannya agar identik dengan `schema.sql` (`pay_gap_percentage`, `employment_gap_percentage_points`, `women_management_percentage`, `female_tertiary_education_percentage`, serta kolom kode dan nama dimensi).
+  - **Pembersihan & Normalisasi**: Menghapus duplikasi (`dropDuplicates()`), membulatkan metrik ke 2 angka di belakang koma, menghapus spasi berlebih (`trim`), menerapkan format `initcap` pada nama negara, status kerja, serta posisi manajemen, dan mengurutkan data berdasarkan *Primary Key*.
+  - **Pelacakan Imputasi (`is_imputed`)**: Menandai baris yang nilai aslinya kosong (`obs_value IS NULL`) melalui kolom boolean `is_imputed` sebelum nilai numerik kosong diisi `0` dan teks wajib yang kosong diisi `'Unknown'`, sementara kolom *flag* (`observation_flag`, `confidentiality_status`) tetap dibiarkan kosong jika memang tidak ada catatan dari Eurostat.
+
+- **Data Validation (`validate.py`)**:
+  - Menerapkan *automated quality gate* menggunakan **Great Expectations (`great-expectations==1.24.1`)** sebelum data masuk ke database produksi dan menyimpan laporan audit ke `/workspace/data/gp/reports/quality_report.csv`.
+  - **Validasi Tabel Fakta & Dimensi**: Memverifikasi kelengkapan kolom wajib, ketepatan jumlah baris dan jumlah baris imputasi (`wage_gap`: 4.829 baris / 33 imputed; `emp_gap`: 1.360 baris / 7 imputed; `women_mang`: 664 baris / 0 imputed; `women_college`: 345 baris / 0 imputed), format 2 huruf kapital pada `country_code` (`^[A-Z]{2}$`), kelengkapan tahun `2015–2024` bertipe integer, rentang nilai persentase yang wajar, batas panjang karakter `VARCHAR` sesuai `schema.sql`, keunikan *Composite Primary Key*, serta konsistensi pemetaan *1-to-1* antara kode dan nama pada tabel dimensi.
+  - **Mekanisme Fail-Safe**: Jika terdapat satu saja aturan yang gagal, `validate.py` keluar dengan kode `sys.exit(1)` sehingga *task* `load_postgres` dan `load_mongo` otomatis tidak dijalankan. Tersedia pula mode uji gagal melalui variabel `VALIDATE_FORCE_FAIL=true`.
+
+- **Loading & Database Provisioning (`load.py`)**:
+  - **PostgreSQL Data Warehouse (`dwh_gp`)**:
+    - Memuat data ke 4 tabel dimensi (`dim_country`: 37 baris, `dim_industry`: 17 baris, `dim_employment_status`: 4 baris, `dim_management_position`: 2 baris, serta memastikan `dim_year`: 10 baris) dan 4 tabel fakta (`fact_gender_pay_gap`: 4.829 baris, `fact_employment_gap`: 1.360 baris, `fact_women_management`: 664 baris, `fact_female_education`: 345 baris).
+    - Berjalan secara idempoten dalam satu transaksi atomik (`engine.begin()`): menjalankan `TRUNCATE TABLE` serentak, mengisi tabel dimensi terlebih dahulu sebelum tabel fakta demi menjaga integritas *Foreign Key*, mengembalikan baris berstatus `is_imputed = True` menjadi `NULL` (`IMPUTED_AS_NULL = True`) agar perhitungan agregasi `AVG()` di SQL akurat, serta memverifikasi jumlah baris akhir (`SELECT COUNT(*)`).
+  - **MongoDB Atlas (`gender_pay_gap`)**:
+    - Memuat 4 koleksi dokumen (`wage_gap`, `emp_gap`, `women_mang`, `women_college`) secara idempoten dengan mempertahankan atribut `is_imputed` untuk kebutuhan audit, mengonversi string kosong menjadi `null`, memasang *unique index* (`unique=True`) pada *Primary Key* tiap koleksi untuk mencegah duplikasi dokumen, serta memverifikasi jumlah dokumen (`count_documents({})`).
 
 #### 2. Airflow Orchestration
-* **DAG Structure**: Menggunakan 1 DAG (`FP_dag.py`) dengan 3 *task* linear: `extract` → `transform` → `load`.
-* **Execution**: Eksekusi dijalankan via `BashOperator`, di mana tiap *task* berjalan sebagai *subprocess* Python independen.
-* **Schedule**: Dijadwalkan berjalan setiap hari Sabtu, menit ke-10 hingga 30 (kelipatan 10) pada jam 09:00 pagi.
-* **Retry Policy**: Konfigurasi otomatis 1 kali percobaan ulang (*retry*) dengan jeda 5 menit jika terjadi kegagalan pada *task*.
+- **DAG Structure**: Menggunakan 1 DAG (`gender_pay_gap_pipeline` pada `/workspace/dags/finalproject_group2_gp_DAG.py`) dengan 5 *task*: `extract` → `transform` → `validate_gx` → `load_postgres` dan `load_mongo` (keduanya berjalan paralel).
+- **Execution & Dependency**: Dijalankan menggunakan `BashOperator` dengan `append_env=True` untuk meneruskan konfigurasi `.env` dan *path* direktori kerja, serta `trigger_rule="all_success"` pada *task* `load_postgres` dan `load_mongo` agar pemuatan hanya berjalan jika `validate_gx` lolos seluruh pengecekan.
+- **Schedule & Concurrency**: Dijadwalkan berjalan otomatis setiap hari Senin pukul 06.00 WIB (`SCHEDULE_CRON = "0 6 * * 1"`, zona waktu `Asia/Jakarta`) dengan konfigurasi `catchup=False` dan `max_active_runs=1`.
+- **Retry Policy**: Konfigurasi otomatis 1 kali percobaan ulang (`retries=1`) dengan jeda 1 menit (`retry_delay=timedelta(minutes=1)`) jika terjadi kegagalan pada *task*.
 
 #### 3. Environment & Infrastructure
-* **Docker Setup**: Menggunakan Airflow via *Docker Compose* dengan *custom image* `airflow-spark` (basis `apache/airflow:2.3.4` yang dilengkapi Java serta pustaka pendukung seperti *great_expectations*, *pandas*, *sqlalchemy*, *beautifulsoup4*, *pyarrow*, dll).
-* **Storage Volume**: Folder direktori `data/`, `dags/`, `scripts/`, dan `logs/` di-mount sebagai *volume* lokal sehingga file *parquet* tetap aman meskipun *container* direstart.
-### Database & Data Modeling 
-Proses ini mengubah data statistik dari Eurostat mengenai kesenjangan gender di Eropa menjadi struktur basis data relasional yang terorganisasi. Data dari empat dataset, yaitu *Gender Pay Gap*, *Employment Gap*, *Female Education*, dan *Women in Senior Management*, dikelola menggunakan PostgreSQL.
+- **Container & Python Environment**: Pipeline berjalan di dalam *container* Docker Apache Airflow dengan lingkungan Python 3.13 dan dependensi utama pada `requirements.txt` (`great-expectations==1.24.1`, `pyspark==4.2.1`, `pymongo`, `psycopg2-binary`, `asyncpg`, `sqlalchemy`, `pandas>=2.2.3,<3`, `python-dotenv`).
+- **Storage & Credential Management**: Data mentah, data bersih, dan laporan kualitas disimpan secara terstruktur di `/workspace/data/gp/{raw,clean,reports}`, sementara seluruh kredensial koneksi database (`PG_HOST`, `PG_PORT`, `PG_DB`, `PG_USER`, `PG_PASSWORD`, `MONGO_URI`, `MONGO_DB`) disimpan terpisah pada file `.env` yang dikecualikan dari repositori Git.
+
 
 Database dirancang menggunakan pendekatan *Dimensional Modeling* dengan memisahkan data pengukuran ke dalam *Fact Tables* dan informasi kategoris ke dalam *Dimension Tables*. Pemisahan ini bertujuan untuk mengurangi redundasi data, menjaga integritas relasional, serta memudahkan proses analisis dan visualisasi.
 #### Database Architecture 
@@ -268,5 +288,27 @@ Untuk menurunkan Gender Pay Gap dengan efektif, pemerintah Uni Eropa dapat merum
 3. Insentif Kepemimpinan Manajerial: Memberikan insentif bagi perusahaan yang meningkatkan persentase perempuan di jajaran manajerial.
 
 ### cara run
-**Isi koneksi** : isi url_database_neon di FP_load.py, lalu copy file dan paste ke `airflow_spark/scripts/`
-**selanjut nya bisa baca readme di folder airflow**
+1. **Persiapan Database & Koneksi (`.env`)**:
+   - Buat database `dwh_gp` di PostgreSQL dan jalankan file DDL `schema.sql` untuk membentuk tabel dimensi dan fakta.
+   - Pastikan *IP Access List* pada MongoDB Atlas sudah mengizinkan koneksi masuk.
+   - Salin `.env.example` menjadi `.env` di folder root Airflow, lalu isi kredensial koneksi database:
+     ```env
+     PG_HOST=host.docker.internal
+     PG_PORT=5432
+     PG_DB=dwh_gp
+     PG_USER=<username_postgres>
+     PG_PASSWORD=<password_postgres>
+     MONGO_URI=<mongodb_atlas_connection_string>
+     MONGO_DB=gender_pay_gap
+     ```
+2. **Menjalankan Melalui Apache Airflow (Otomatis / Trigger Manual)**:
+   - Pastikan file DAG `finalproject_group2_gp_DAG.py` berada di `/workspace/dags/` dan seluruh script ETL (`extract.py`, `transform.py`, `validate.py`, `load.py`) berada di `/workspace/scripts/gp/`.
+   - Aktifkan (*unpause*) DAG **`gender_pay_gap_pipeline`** di UI Airflow. Pipeline akan berjalan otomatis setiap hari Senin pukul 06.00 WIB atau dapat dijalankan langsung melalui tombol **Trigger DAG**.
+3. **Menjalankan Manual di Dalam Container**:
+   ```bash
+   cd /workspace/scripts/gp
+   source set_env.sh
+   python extract.py
+   python transform.py
+   python validate.py
+   python load.py          # memuat ke PostgreSQL dan MongoDB sekaligus (atau gunakan: load.py postgres / load.py mongo)
