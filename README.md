@@ -64,7 +64,7 @@ Proses ini mengubah data statistik dari Eurostat mengenai kesenjangan gender di 
 
 Database dirancang menggunakan pendekatan *Dimensional Modeling* dengan memisahkan data pengukuran ke dalam *Fact Tables* dan informasi kategoris ke dalam *Dimension Tables*. Pemisahan ini bertujuan untuk mengurangi redundasi data, menjaga integritas relasional, serta memudahkan proses analisis dan visualisasi.
 #### Database Architecture 
-![Galaxy Schema](https://github.com/dutarangga3107-max/CODA-020-Final_Project/blob/main/Schema/Schema.png?raw=true)
+![Galaxy Schema](ERD_Gender_Pay_Gap_Analysis.png)
 Arsitektur basis data dirancang menggunakan *Galaxy Schema*, yang terdiri dari:
 * **Fact Tables**: Menyimpan metrik utama yang digunakan dalam analisis, meliputi:
   * `fact_gender_pay_gap`: Menyimpan persentase kesenjangan upah berdasarkan negara, tahun, dan industri.
