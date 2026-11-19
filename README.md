@@ -8,32 +8,18 @@
 
 **Data Analyst**: Guntur Rizkiyana Muhammad
 ## **Background**
-kasus Tindak Pidana Perdagangan Orang (TPPO) dan eksploitasi pekerja migran lintas negara seperti sindikat penipuan kerja ilegal berkedok tawaran gaji tinggi di luar negeri serta jeratan kerja paksa tanpa prosedur resmi menunjukkan bahwa human trafficking masih menjadi krisis kemanusiaan global yang kompleks.
-
-Kejahatan ini didorong oleh berbagai faktor multi-dimensi, mulai dari kerentanan demografis korban, risiko spesifik sektor pekerjaan, hingga dinamika trust (kepercayaan) yang dimanipulasi oleh pelaku termasuk kasus di mana identitas atau jaringan pelaku tidak terdeteksi oleh sistem hukum. Memahami bagaimana elemen-elemen ini saling beririsan, khususnya bagaimana pelaku memanfaatkan hubungan kedekatan emosional (seperti keluarga, teman, atau mitra) untuk menjebak korban, sangat krusial untuk mengidentifikasi segmen berisiko tinggi. Dengan menganalisis data korban secara komprehensif, proyek ini bertujuan untuk mengungkap pola kerentanan tersembunyi, sehingga para pemangku kepentingan dapat merancang intervensi yang tepat sasaran dan berbasis data.
-## **Fenomena**
-Perkembangan Media Sosial dan Online Platforms semakin mempermudah traffickers dalam menemukan, mendekati, dan memanipulasi calon korban. Namun, recruitment tidak selalu dilakukan oleh orang asing. Hubungan dekat seperti keluarga, teman atau pasangan dapat menjadi jalur recruitment karena adanya kepercayaan dan kedekatan interpersonal. oleh karena itu, diperlukan analisis untuk mengetahui kelompok korban mana yang paling rentan, sektor eksploitasi apa yang paling berisiko, serta apakah hubungan korban dengan bentuk dan tingkat eksploitasi yang dialami.
+Kesetaraan gender merupakan pilar utama agenda pembangunan berkelanjutan Uni Eropa (SDG 5), namun kesenjangan upah antar-gender (Gender Pay Gap) masih menjadi tantangan di berbagai sektor industri. Analisis ini menggunakan data resmi Eurostat (2015–2024) untuk memetakan disparitas upah lintas sektor serta menguji pengaruh tingkat pendidikan tinggi, partisipasi kerja, dan kepemimpinan manajerial perempuan guna menghasilkan rekomendasi kebijakan berbasis data.
 
 ## Stakeholder
 
-Proyek ini melibatkan berbagai stakeholder yang memiliki peran dalam pencegahan human trafficking, perlindungan korban, penegakan hukum, serta pengembangan kebijakan dan strategi berbasis data.
+Proyek ini melibatkan berbagai stakeholder yang memiliki peran dalam dalam meregulasi dan menekan Gender Pay Gap
 
 | Stakeholder | Peran |
 |---|---|
-| **United Nations (UN)** | Mengembangkan kerangka kerja internasional, kebijakan, dan kerja sama dalam penanganan perdagangan manusia serta perlindungan hak asasi manusia | 
-| **Kepolisian / Aparat Penegak Hukum** | Melakukan penyelidikan kasus, mengidentifikasi pelaku dan jaringan perdagangan manusia, serta mendukung proses penegakan hukum | 
-| **UNICEF** | Melindungi anak dari perdagangan manusia, eksploitasi, kekerasan, dan bentuk pelanggaran lainnya | Tinggi |
-| **Perusahaan Platform Media Sosial** | Mendeteksi dan mencegah aktivitas terkait perdagangan manusia serta meningkatkan keamanan dan mekanisme pelaporan di platform | 
-| **Researchers / Peneliti** | Menganalisis pola perdagangan manusia, mengidentifikasi faktor risiko, dan menghasilkan temuan berbasis data untuk mendukung kebijakan | 
-
-## **SDG**
-
-| SDG | Fokus | Keterkaitan dengan Human Trafficking |
-|---|---|---|
-| **SDG 5** | Kesetaraan Gender | Mengatasi kerentanan berbasis gender serta eksploitasi seksual dalam perdagangan manusia |
-| **SDG 8** | Pekerjaan Layak dan Pertumbuhan Ekonomi | Mengatasi forced labour dan eksploitasi tenaga kerja serta mendukung kondisi kerja yang layak |
-| **SDG 10** | Berkurangnya Kesenjangan | Mengurangi kerentanan kelompok sosial dan ekonomi tertentu terhadap perdagangan dan eksploitasi |
-| **SDG 16** | Perdamaian, Keadilan dan Kelembagaan yang Tangguh | Mendukung perlindungan hak asasi manusia, penegakan hukum, perlindungan korban, dan penguatan institusi |
+| **Pembuat Kebijakan & Regulator Uni Eropa** | Merumuskan regulasi transparansi upah lintas industri (seperti EU Pay Transparency Directive), mengalokasikan anggaran beasiswa pendidikan tinggi bagi perempuan, serta merancang insentif pajak/regulasi bagi perusahaan yang meningkatkan kuota kepemimpinan perempuan | 
+| **Pimpinan Perusahaan** | Mengevaluasi struktur kompensasi (gaji pokok, bonus, dan promosi), menghilangkan bias gender dalam jenjang karier, serta membuka akses lebih luas bagi perempuan ke posisi manajerial. | 
+| **Institusi Pendidikan Tinggi & Lembaga Pelatihan** | Mendorong partisipasi mahasiswi di bidang-bidang strategis dan berpenghasilan tinggi (seperti keuangan, teknologi, dan manajemen bisnis). |
+| **European Institute for Gender Equality / EIGE** | Mendapatkan transparansi informasi mengenai standar pengupahan di tiap sektor industri dan memperjuangkan kesetaraan hak serta peluang promosi di tempat kerja. | 
 
 
 ## **Data Engineering (Pipeline & Infrastructure)**
@@ -211,18 +197,12 @@ JOIN public.dim_industry i
 | `women_management_percentage` | numeric(8,3) | Menyimpan persentase perempuan yang menduduki posisi manajemen berdasarkan kategori posisi profesional |
 
 ## **Problem Statement**
-Sulitnya mengidentifikasi kelompok korbann, sektor pekerjaan, dan pola recruitement yang memiliki resiko exploitasi lebih tinggi, serta memahami bagaimana karakteristik tersebut berkiatan dengan bentuk eksploitasi yang dialami korban. Belum diketahui apakah hubungan tertentu antara korban dan recruiter berkaitan dengan tingkat eksploitasi yang lebih tinggi dan kelompok demografis mana yang paling rentan terhadap pola recruitement tersebut.
-| SMART          | Framework                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Specific**   | Mengidentifikasi **kelompok demografis, sektor eksploitasi, recruitment relationship, dan bentuk eksploitasi** yang memiliki tingkat risiko lebih tinggi, serta mengetahui hubungan recruiter mana yang paling sering berujung pada **forced labour atau sexual exploitation**. Selain itu, menganalisis tingkat kontrol yang dialami korban berdasarkan **8 bentuk means of control**.                                                                                                                                                                                            |
-| **Measurable** | Mengukur risiko menggunakan **jumlah korban (count), persentase korban (%), dan exploitation rate (%)** berdasarkan `ageBroad`, `gender`, `citizenship`, sektor, dan recruitment relationship. Hubungan recruiter juga dibandingkan berdasarkan proporsi korban yang mengalami **forced labour, sexual exploitation, dan other exploitation**. Tingkat kontrol korban diukur dengan menjumlahkan **8 kolom `means`**, sehingga setiap korban memiliki **Control Means Score 0–8**. Contohnya, korban dengan nilai **6/8** berarti mengalami 6 dari 8 bentuk kontrol yang tercatat. |
-| **Achievable** | Analisis dapat dilakukan berdasarkan variabel yang tersedia dalam dataset, yaitu karakteristik demografis, sektor eksploitasi, recruitment relationship, exploitation outcome, dan 8 indikator means of control. Analisis menggunakan **descriptive statistics, cross-tabulation, persentase, exploitation rate, dan Chi-Square Test** untuk melihat hubungan antarvariabel.                                                                                                                                                                                                       |
-| **Relevant**   | Hasil analisis dapat membantu **United Nations, kepolisian, UNICEF, platform media sosial, dan researchers** mengidentifikasi kelompok yang lebih rentan, recruitment relationship yang lebih sering berkaitan dengan bentuk eksploitasi tertentu, serta tingkat kontrol yang dialami korban. Informasi ini dapat mendukung strategi **pencegahan, identifikasi, perlindungan korban, dan penegakan hukum**.                                                                                                                                                                       |
-| **Time-Bound** | Analisis mencakup kasus yang tercatat dalam dataset selama periode **2002–2024**. Perubahan jumlah korban, pola recruitment relationship, sektor, bentuk eksploitasi, dan tingkat kontrol dapat dibandingkan berdasarkan tahun registrasi untuk melihat **tren selama 23 tahun**. Hasil historis tersebut dapat menjadi dasar untuk analisis dan proyeksi pola trafficking di periode berikutnya.                                                                                                                                                                                  |
+"Meskipun tingkat pendidikan tinggi dan partisipasi kerja perempuan di kawasan Eropa terus meningkat selama periode 2015–2024, kesenjangan upah antar-gender (Gender Pay Gap) masih ada. Tanpa pemetaan empiris mengenai sektor yang paling terdampak serta pengujian statistik terhadap faktor-faktor pendorongnya—seperti tingkat pendidikan tinggi, selisih partisipasi kerja (employment gap), dan keterwakilan perempuan di posisi manajerial—pembuat kebijakan Uni Eropa berisiko merumuskan intervensi yang kurang tepat sasaran dalam mempercepat kesetaraan upah."
+
 
 ## **Key Questions**
-1. Bagaimana tren gender pay gap di Eropa seiring waktu?
-2. Berdasarkan Industri, bagaimana tren gender pay gap?
+1. Bagaimana tren gender pay gap di Eropa seiring waktu? 
+2. Berdasarkan Industri, bagaimana perbandingan gender pay gap? Secara statistik, apakah perbedaan antar industri ini nyata atau hanya kebetulan?
 3. Bagaimana trend tingkat edukasi wanita? Serta apa pengaruhnya terhadap gender pay gap?
 4. Bagaimana tren persentase gap employment antara gender? Bagaimana pengaruhnya terhadap gender pay gap?
 5. Bagaimana perkembangan tren persentase wanita masuk menjabat dalam manajemen suatu perusahaan? Bagaimana pengaruhnya terhadap gender pay gap?
@@ -265,7 +245,7 @@ Sulitnya mengidentifikasi kelompok korbann, sektor pekerjaan, dan pola recruitem
 **Explanation:** Mengukur exploitation rate berdasarkan recruitment relationship atau hubungan antara korban dan pihak yang merekrutnya.<br>
 **Purpose:** Mengidentifikasi pola hubungan rekrutmen yang memiliki tingkat resiko eksploitasi lebih tinggi.
 
-## **Key Questions & Findings**
+## **Findings**
 **KQ1**. Risiko eksploitasi sangat dipengaruhi gender dan usia, perempuan (khususnya anak 09–17 tahun) dominan mengalami eksploitasi seksual, sementara laki-laki dominan mengalami kerja paksa, dengan pola yang juga bervariasi menurut kewarganegaraan.<br>
 **KQ2.** Setiap sektor memiliki "signature" eksploitasi yang khas dan hampir murni satu jenis seperti sektor seks (prostitusi, pornografi) hampir eksklusif eksploitasi seksual, sektor kerja fisik (agriculture, construction) hampir eksklusif kerja paksa, kecuali hospitality yang menunjukkan risiko ganda.<br>
 **KQ3.** Relasi personal yang dekat (intimate partner, family) justru berkorelasi dengan rate eksploitasi seksual tertinggi, sedangkan relasi non-personal ("other"/agen) lebih berkorelasi dengan kerja paksa  membalikkan asumsi umum bahwa orang asing adalah ancaman utama.<br>
@@ -274,7 +254,19 @@ Sulitnya mengidentifikasi kelompok korbann, sektor pekerjaan, dan pola recruitem
 **KQ6**. Berdasarkan uji statistik Spearman ($\rho = 0,7204$; $p = 0,000106$), jumlah korban dengan hubungan rekrutmen Other menunjukkan tren peningkatan jangka panjang yang signifikan dengan puncak tertinggi pada 2016, sementara kategori Family, Friend, dan Intimate Partner masing-masing mencapai puncaknya pada 2016 atau 2019 sebelum mengalami penurunan hingga tahun 2024.
 
 ## **Conclusion**
-Proyek ini berhasil mengungkap bahwa risiko TPPO terbentuk dari kombinasi spesifik antara siapa korbannya (usia, gender, kewarganegaraan), di sektor apa mereka dieksploitasi, dan melalui relasi apa mereka direkrut dengan relasi kedekatan personal sebagai titik kerentanan yang paling kritis namun paling sulit dideteksi. Temuan ini memberikan dasar berbasis data bagi pemangku kepentingan untuk merancang intervensi yang lebih tepat sasaran tidak hanya berfokus pada pengawasan jalur migrasi kerja formal dan sindikat eksternal, tetapi juga pada edukasi dan deteksi dini terhadap pola manipulasi hubungan dekat di lingkungan terdekat korban.
+1. Overall, perkembangan Gender Pay Gap menujukkan trend positif (membaik) dengan terus menurun seiring waktu
+2. Industri bisnis dan servis mencatat Gender Pay Gap tertinggi. Gap terendah ada pada industri yang berkutat pada operasional lapangan.
+3. Perbedaan pay gap antar industri signifikan secara statistik sehingga jenis industri mempengaruhi besarnya Gender Pay Gap
+4. Tingkat edukasi tinggi, gender gap employment dan persentase wanita dalam posisi manajemen menunjukkan tren perkembangan positif (membaik) selama 10 tahun.
+5. Tingkat edukasi tinggi dan persentase wanita dalam posisi manajemen memiliki korelasi dan signifikan secara statistik dalam menurunkan Gender Pay Gap. Sedangkan gender gap employment tidak memiliki korelasi dan signifikansi secara statistik. 
+
+## **Recommendation**
+Untuk menurunkan Gender Pay Gap dengan efektif, pemerintah Uni Eropa dapat merumuskan kebijakan sebagai berikut:
+
+1. Regulasi Upah Industri: Menerapkan standar pelaporan kesenjangan upah berkala pada industri guna mengatur dan menekan ketimpangan upah, bonus dan jenjang karier.
+2. Perluasan Akses Pendidikan Tinggi: Memperluas beasiswa dan akses pendidikan tinggi bagi wanita.
+3. Insentif Kepemimpinan Manajerial: Memberikan insentif bagi perusahaan yang meningkatkan persentase perempuan di jajaran manajerial.
+
 ### cara run
 **Isi koneksi** : isi url_database_neon di FP_load.py, lalu copy file dan paste ke `airflow_spark/scripts/`
 **selanjut nya bisa baca readme di folder airflow**
