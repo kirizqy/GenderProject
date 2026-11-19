@@ -10,6 +10,9 @@
 ## **Background**
 Kesetaraan gender merupakan pilar utama agenda pembangunan berkelanjutan Uni Eropa (SDG 5), namun kesenjangan upah antar-gender (Gender Pay Gap) masih menjadi tantangan di berbagai sektor industri. Analisis ini menggunakan data resmi Eurostat (2015–2024) untuk memetakan disparitas upah lintas sektor serta menguji pengaruh tingkat pendidikan tinggi, partisipasi kerja, dan kepemimpinan manajerial perempuan guna menghasilkan rekomendasi kebijakan berbasis data.
 
+## **Objective**
+Mengevaluasi tren Gender Pay Gap di Eropa (2015–2024) serta faktor-faktor yang dapat menurunkannya untuk memberikan rekomendasi kebijakan yang efektif.
+
 ## Stakeholder
 
 Proyek ini melibatkan berbagai stakeholder yang memiliki peran dalam dalam meregulasi dan menekan Gender Pay Gap
@@ -254,11 +257,7 @@ JOIN public.dim_industry i
 **KQ6**. Berdasarkan uji statistik Spearman ($\rho = 0,7204$; $p = 0,000106$), jumlah korban dengan hubungan rekrutmen Other menunjukkan tren peningkatan jangka panjang yang signifikan dengan puncak tertinggi pada 2016, sementara kategori Family, Friend, dan Intimate Partner masing-masing mencapai puncaknya pada 2016 atau 2019 sebelum mengalami penurunan hingga tahun 2024.
 
 ## **Conclusion**
-1. Overall, perkembangan Gender Pay Gap menujukkan trend positif (membaik) dengan terus menurun seiring waktu
-2. Industri bisnis dan servis mencatat Gender Pay Gap tertinggi. Gap terendah ada pada industri yang berkutat pada operasional lapangan.
-3. Perbedaan pay gap antar industri signifikan secara statistik sehingga jenis industri mempengaruhi besarnya Gender Pay Gap
-4. Tingkat edukasi tinggi, gender gap employment dan persentase wanita dalam posisi manajemen menunjukkan tren perkembangan positif (membaik) selama 10 tahun.
-5. Tingkat edukasi tinggi dan persentase wanita dalam posisi manajemen memiliki korelasi dan signifikan secara statistik dalam menurunkan Gender Pay Gap. Sedangkan gender gap employment tidak memiliki korelasi dan signifikansi secara statistik. 
+Perkembangan Gender Pay Gap di Eropa selama 2015-2024 semakin membaik. Terjadi penurunan dari 13.51% menjadi 10.62% atau menurun sebesar 2.89%. Namun perlu diingat, tiap industri memiliki besaran Gender Pay Gap yang berbeda. Gender Employment Gap tidak memiliki pengaruh yang signifikan secara statistik dalam menurunkan Gender Pay Gap. Sehingga, kita bisa berfokus pada peningkatan persentase edukasi tingkat tinggi bagi wanita dan wanita dalam posisi manajerial untuk menurunkan Gender Pay Gap secara efektif.
 
 ## **Recommendation**
 Untuk menurunkan Gender Pay Gap dengan efektif, pemerintah Uni Eropa dapat merumuskan kebijakan sebagai berikut:
