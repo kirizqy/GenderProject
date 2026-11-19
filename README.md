@@ -86,7 +86,7 @@ Arsitektur basis data dirancang menggunakan *Galaxy Schema*, yang terdiri dari:
 * **Foreign Key**: Menerapkan relasi antara Fact Tables dan Dimension Tables untuk menjaga konsistensi referensi data.
 
 ### SQL & Analytics
-Untuk mendukung kebutuhan analisis dan menjawab lima pertanyaan penelitian (*Research Questions*), dirancang SQL Queries dan *SQL Views* yang menghubungkan Fact Tables dengan Dimension Tables.
+Untuk mendukung kebutuhan analisis dan menjawab lima pertanyaan penelitian (*Key Questions*), dirancang SQL Queries dan *SQL Views* yang menghubungkan Fact Tables dengan Dimension Tables.
 
 Penggunaan *SQL Views* bertujuan menyederhanakan proses pengambilan data, mengurangi pengulangan sintaks `JOIN`, serta menyediakan struktur data yang lebih mudah digunakan oleh tim Analyst & Dashboard.
 
