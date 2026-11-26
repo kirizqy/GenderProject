@@ -11,7 +11,7 @@
 Kesetaraan gender merupakan pilar utama agenda pembangunan berkelanjutan Uni Eropa (SDG 5), namun kesenjangan upah antar-gender (Gender Pay Gap) masih menjadi tantangan di berbagai sektor industri. Analisis ini menggunakan data resmi Eurostat (2015–2024) untuk memetakan disparitas upah lintas sektor serta menguji pengaruh tingkat pendidikan tinggi, partisipasi kerja, dan kepemimpinan manajerial perempuan guna menghasilkan rekomendasi kebijakan berbasis data.
 
 ## **Objective**
-Mengevaluasi tren Gender Pay Gap di Eropa (2015–2024) serta faktor-faktor yang dapat menurunkannya untuk memberikan rekomendasi kebijakan yang efektif.
+Analisa tren Gender Pay Gap di Eropa serta faktor-faktor yang dapat menurunkannya untuk memberikan rekomendasi kebijakan yang efektif.
 
 ## Stakeholder
 
@@ -232,49 +232,33 @@ JOIN public.dim_industry i
 
 
 ## **Key Performance Indicators (KPI)**
-**1. Exploitation Rate**<br>
-**Explanation:** Mengukur persentase korban yang mengalami forced labour dari total korban.<br>
-**Purpose:** Mengetahui proporsi keseluruhan korban yang mengalami eksploitasi.
+**1. Pay Gap Percentage**<br>
+**Explanation:** Mengukur persentase perkembangan Gender Pay Gap.<br>
+**Purpose:** Mengetahui besaran persentase Gender Pay gap yang terjadi di Eropa.
   
-**2. Forced Labour Rate**<br>
-**Explanation:** Mengukur persentase korban yang mengalami forced labour dari total korban.<br>
-**Purpose:** Mengidentifikasi seberapa sering kasus kerja paksa terjadi dalam dataset ini. 
+**2. Women in Management Percentage**<br>
+**Explanation:** Mengukur persentase wanita yang bekerja dalam manajerial perusahaan.<br>
+**Purpose:** Mengetahui persentase wanita yang bekerja namun dalam bagian manajerial. 
   
-**3. Sexual Exploitation Rate**<br>
-**Explanation:** Mengukur persentase korban yang mengalami sexual exploitation dari total korban.<br>
-**Purpose:** Mengetahui seberapa besar proporsi korban yang mengalami eksploitasi seksual.
+**3. Employment Gap percentage**<br>
+**Explanation:** Mengukur persentase selisih employment rate anatara pria dan wanita.<br>
+**Purpose:** Mengetahui kesenjangan persentase pekerja antara pria dan wanita.
   
-**4. Debt Bondage Rate**<br>
-**Explanation:** Mengukur persentase korban yang mengalami debt bondage dari total korban.<br>
-**Purpose:** Mengidentifikasi tingkat eksploitasi yang berkaitan dengan keterikatan utang.
+**4. Women in College Level Education Percentage**<br>
+**Explanation:** Mengukur persentase wanita yang berada di tingkat pendidikan kuliah.<br>
+**Purpose:** Mengetahui tingkat persentase pendidikan wanita yang ada di eropa.
   
-**5. Document Withholding Rate**<br>
-**Explanation:** Mengukur persentase korban yang mengalami penahanan atau penyitaan dokumen dari total korban.<br>
-**Purpose:** Mengetahui seberapa sering terjadi penahanan dokumen sebagao salah satu indikator resiko eksploitasi.
+**5. Industry Gender Pay Gap Percentage**<br>
+**Explanation:** Mengukur persentase Gender Pay gap yang ada pada tiap industri.<br>
+**Purpose:** Mengetahui perbedaan gender pay gap yang ada pada tiap indsutri.
   
-**6. High-Risk Sector Agriculture**<br>
-**Explanation:** Mengukur exploitation rate khusus pada korban yang bekerja di sektor Agriculture.<br>
-**Purpose:** Mengidentifikasi apakah sektor Agricukture merupakan sektor dengan resiko eksploitasi yang tinggi.
-  
-**7. High-Risk Age**<br>
-**Explanation:** Menemukan kelompok usia dengan exploitation rate tertinggi.<br>
-**Purpose:** Mengidentifikasi kelompok usia yang paling rentan terhadap eksploitasi.
-  
-**8. High-Risk Citizenship**<br>
-**Explanation:** Mengukur exploitation rate berdasarkan kewarganegaraan korban.<br>
-**Purpose:** Mengidentifikasi kelompok kewarganegaraan dengan tingkat resiko eksploitasi tertinggi.
-  
-**9. Recruitement Risk**<br>
-**Explanation:** Mengukur exploitation rate berdasarkan recruitment relationship atau hubungan antara korban dan pihak yang merekrutnya.<br>
-**Purpose:** Mengidentifikasi pola hubungan rekrutmen yang memiliki tingkat resiko eksploitasi lebih tinggi.
 
 ## **Findings**
-**KQ1**. Risiko eksploitasi sangat dipengaruhi gender dan usia, perempuan (khususnya anak 09–17 tahun) dominan mengalami eksploitasi seksual, sementara laki-laki dominan mengalami kerja paksa, dengan pola yang juga bervariasi menurut kewarganegaraan.<br>
-**KQ2.** Setiap sektor memiliki "signature" eksploitasi yang khas dan hampir murni satu jenis seperti sektor seks (prostitusi, pornografi) hampir eksklusif eksploitasi seksual, sektor kerja fisik (agriculture, construction) hampir eksklusif kerja paksa, kecuali hospitality yang menunjukkan risiko ganda.<br>
-**KQ3.** Relasi personal yang dekat (intimate partner, family) justru berkorelasi dengan rate eksploitasi seksual tertinggi, sedangkan relasi non-personal ("other"/agen) lebih berkorelasi dengan kerja paksa  membalikkan asumsi umum bahwa orang asing adalah ancaman utama.<br>
-**KQ4.** Anak perempuan yang direkrut melalui relasi dekat memiliki risiko eksploitasi seksual paling ekstrem, sementara anak laki-laki menunjukkan pola eksploitasi yang lebih campuran antara kerja paksa dan seksual.<br>
-**KQ5.** Profil korban dengan risiko paling ekstrem adalah kombinasi anak usia sangat muda, sektor eksploitasi seksual, dan direkrut oleh keluarga sendiri seperti menunjukkan bahwa kombinasi faktor demografis, sektor, dan relasi recruiter jauh lebih prediktif dibanding faktor tunggal manapun.<br>
-**KQ6**. Berdasarkan uji statistik Spearman ($\rho = 0,7204$; $p = 0,000106$), jumlah korban dengan hubungan rekrutmen Other menunjukkan tren peningkatan jangka panjang yang signifikan dengan puncak tertinggi pada 2016, sementara kategori Family, Friend, dan Intimate Partner masing-masing mencapai puncaknya pada 2016 atau 2019 sebelum mengalami penurunan hingga tahun 2024.
+**KQ1**. Pertumbuhan Gender Pay Gap menuju kearah postif dengan munurunnya persentase dari dari tahun 2015 - 2024 sebesar 13.05% menjadi 12.19% atau menurun 0.86% .<br>
+**KQ2.** Secara industri, bisnis dan layanan memiliki gender pay gap terbesar. Perbedaan pay gap antar industri signifikan secara statistik sehingga jenis industri mempengaruhi besarnya Gender Pay Gap.<br>
+**KQ3.** Setiap tahun tingkat edukasi pada wanita menunjukkan tren yang postif dengan selalu naik. Melalui uji statistik kami membuktikan bahwa semakin banyak wanita yang mengenyam pendidikan perkuliahan, maka akan semakin menurun gender pay gap. Secara statistik ada bukti bahwa ada hubungan negatif yang signifikan secara statistik antara keduanya.<br>
+**KQ4.** Berdasarkan data selisih tenaga kerja pria dan wanita di Eropa, tenaga kerja pria masih lebih besar. Namun persentase ini terus menurun selama kurun waktu 10 tahun. Melalui uji statistik kami membuktikan bahwa tidak ada hubungan antara gap employment dan gender pay gap baik secara korelasi maupun statistik.<br>
+**KQ5.** Secara tren, tiap tahun persentase Wanita dalam Posisi Manajerial semakin naik setiap tahunnya.  Melalui uji statistik kami membuktikan semakin banyak wanita yang bekerja dalam manajemen suatu perusahaan, maka akan semakin menurun gender pay gap. Statistik membuktikan bahwa ada hubungan negatif yang signifikan secara statistik antara keduanya. <br>
 
 ## **Conclusion**
 Perkembangan Gender Pay Gap di Eropa selama 2015-2024 semakin membaik. Terjadi penurunan dari 13.51% menjadi 10.62% atau menurun sebesar 2.89%. Namun perlu diingat, tiap industri memiliki besaran Gender Pay Gap yang berbeda. Gender Employment Gap tidak memiliki pengaruh yang signifikan secara statistik dalam menurunkan Gender Pay Gap. Sehingga, kita bisa berfokus pada peningkatan persentase edukasi tingkat tinggi bagi wanita dan wanita dalam posisi manajerial untuk menurunkan Gender Pay Gap secara efektif.
